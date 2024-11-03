@@ -1,0 +1,246 @@
+:root {
+    --bs-primary: rgb(131, 23, 23);
+    --bs-primary-rgb: 131, 23, 23;
+}
+
+/* Custom styles to override Bootstrap */
+.carousel-item {
+    height: 600px;
+}
+
+.carousel-item img {
+    object-fit: cover;
+    height: 100%;
+    width: 100%;
+}
+
+.carousel-caption {
+    background: rgba(0, 0, 0, 0.5);
+    left: 0;
+    right: 0;
+    top: 50%;
+    bottom: auto;
+    transform: translateY(-50%);
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.carousel-caption h1 {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+}
+
+.carousel-caption p {
+    font-size: 1.5rem;
+    margin-bottom: 1.5rem;
+}
+
+.nav-link {
+    text-transform: uppercase;
+    font-weight: 500;
+    padding: 0.5rem 1rem !important;
+    position: relative;
+    color: #333 !important;
+}
+
+.nav-link::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background-color: rgb(131, 23, 23);
+    transition: width 0.3s ease;
+}
+
+.nav-link:hover::after,
+.nav-link.active::after {
+    width: 100%;
+}
+
+.nav-link:hover,
+.nav-link.active {
+    color: rgb(131, 23, 23) !important;
+}
+
+#preloader {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+}
+
+.btn-primary {
+    background-color: rgb(131, 23, 23) !important;
+    border-color: rgb(131, 23, 23) !important;
+}
+
+.btn-primary:hover {
+    background-color: transparent !important;
+    color: rgb(131, 23, 23) !important;
+    border-color: rgb(131, 23, 23) !important;
+}
+
+.bg-primary {
+    background-color: rgb(131, 23, 23) !important;
+}
+
+/* Mobile Responsiveness */
+@media (max-width: 768px) {
+    .contact-info {
+        font-size: 0.8rem;
+    }
+    
+    .quick-links {
+        font-size: 0.8rem;
+    }
+
+    .carousel-caption h1 {
+        font-size: 1.8rem;
+    }
+
+    .carousel-caption p {
+        font-size: 1rem;
+    }
+
+    .carousel-item {
+        height: 400px;
+    }
+}
+
+/* Fix dropdown hover issues */
+.dropdown:hover .dropdown-menu {
+    display: block;
+    margin-top: 0;
+}
+
+.dropdown-item:hover {
+    background-color: rgb(131, 23, 23);
+    color: white;
+}
+
+/* Fix carousel control buttons */
+.carousel-control-prev,
+.carousel-control-next {
+    width: 50px;
+    height: 50px;
+    background: rgba(131, 23, 23, 0.7);
+    border-radius: 50%;
+    top: 50%;
+    transform: translateY(-50%);
+    opacity: 1;
+    margin: 0 20px;
+}
+
+.carousel-control-prev {
+    left: 20px;
+}
+
+.carousel-control-next {
+    right: 20px;
+}
+
+.carousel-control-prev:hover,
+.carousel-control-next:hover {
+    background: rgb(131, 23, 23);
+    opacity: 1;
+}
+
+.carousel-control-prev-icon,
+.carousel-control-next-icon {
+    width: 30px;
+    height: 30px;
+}
+
+/* Update preview thumbnail positions */
+.preview-thumbnail {
+    position: absolute;
+    width: 150px;
+    height: 100px;
+    top: 50%;
+    transform: translateY(-50%);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    border: 2px solid white;
+    border-radius: 5px;
+    overflow: hidden;
+    pointer-events: none;
+    z-index: 2;
+}
+
+.carousel-control-prev .preview-thumbnail {
+    left: -170px;
+}
+
+.carousel-control-next .preview-thumbnail {
+    right: -170px;
+}
+
+.preview-thumbnail img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 0.7;
+}
+
+.carousel-control-prev:hover .preview-thumbnail,
+.carousel-control-next:hover .preview-thumbnail {
+    opacity: 1;
+}
+
+/* Add these rules at the top of your CSS file */
+html, body {
+    max-width: 100%;
+    overflow-x: hidden;
+    margin: 0;
+    padding: 0;
+}
+
+/* Update container styles */
+.container {
+    padding-left: 15px;
+    padding-right: 15px;
+    margin-right: auto;
+    margin-left: auto;
+    width: 100%;
+}
+
+/* Update carousel container */
+#heroCarousel {
+    width: 100%;
+    overflow: hidden;
+}
+
+/* Update preview thumbnail position to prevent overflow */
+.preview-thumbnail {
+    position: absolute;
+    width: 150px;
+    height: 100px;
+    top: 50%;
+    transform: translateY(-50%);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    border: 2px solid white;
+    border-radius: 5px;
+    overflow: hidden;
+    pointer-events: none;
+    z-index: 2;
+}
+
+.carousel-control-prev .preview-thumbnail {
+    left: 60px; /* Adjusted to prevent overflow */
+}
+
+.carousel-control-next .preview-thumbnail {
+    right: 60px; /* Adjusted to prevent overflow */
+}
