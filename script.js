@@ -49,4 +49,38 @@ document.addEventListener('DOMContentLoaded', function () {
             wrap: true
         });
     }
+
+    const currentLang = document.querySelector('.current-lang');
+    
+    // Update the current language display
+    Weglot.on('languageChanged', function(newLang, prevLang) {
+        currentLang.textContent = newLang.toUpperCase();
+    });
+
+    // Language switcher
+    const languageSelect = document.getElementById('languageSelect');
+    
+    if (languageSelect) {
+        // Set initial value based on current language
+        languageSelect.value = Weglot.getCurrentLang();
+        
+        // Add change event listener
+        languageSelect.addEventListener('change', function() {
+            Weglot.switchTo(this.value);
+        });
+        
+        // Update select when language changes
+        Weglot.on('languageChanged', function(newLang) {
+            languageSelect.value = newLang;
+        });
+    }
+
+    // Update the Weglot initialization
+    Weglot.initialize({
+        api_key: 'wg_b3f991dc1b2c1b10d2c6a2f3e8e4c5c7',
+        original_language: 'en',
+        destination_languages: ['km'],
+        hide_languages: [],
+        default_language: 'en'  // Set English as default
+    });
 });
